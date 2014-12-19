@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICON Hospital</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/foundation.css">
+  	<script src="/static/js/foundation.min.js"></script>
+
+</head>
+<body>
+
+    <section class="row">
+        <header class="large-12 columns">
+            <h3 class="homepage"><a><img src= "/static/img/stetho.jpg" style="height:50px;"/>&nbsp;ICON</a></h3>
+            <div class="large-6 columns">HEALTH CARE</div>
+            <div class="large-6 columns">    
+	            <dl class="tabs" data-tab> 
+	            	<dd><a id="panel1" href="#new_entry">New Entry</a></dd> 
+	            	<dd><a id="panel2" href="#patient_details">Patient Details</a></dd> 
+	            </dl>
+            </div>
+            <hr>
+        </header>
+    </section>
+
+    
+    <section class="row">
+    	<div class="landing_page">
+	    	<center>
+	    	<ul data-orbit>
+			    <li>
+			      <img src="/static/img/OPD.jpg" width="600" alt="slide 1" />		      
+			    </li>
+			    <li class="active">
+			      <img src="/static/img/Prescribe.jpg" width="600" alt="slide 2" />		      
+			    </li>
+			    <li>
+			      <img src="/static/img/reception.jpg" width="600" alt="slide 3" />		      
+			    </li>
+			</ul>
+			</center>
+		</div>
+
+		<div class="tabs-content"> 
+
+		 	<div class="content active" id="new_entry"> 
+		 		<p>This is the first panel of the basic tab example. This is the first panel of the basic tab example.</p> 
+		 	</div> 
+
+		 	<div class="content" id="patient_details"> <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p> 
+		 	</div>
+
+		</div>
+
+
+        <script type="text/javascript">
+        	$(document).foundation({
+        		orbit: {
+				    animation: 'slide',
+				    timer_speed: 4500,
+				    pause_on_hover: false,
+				    animation_speed: 500,
+				    navigation_arrows: true				    
+				}
+        	});
+
+        	$(document).on('click',"#panel1,#panel2",function(){
+        		$(".landing_page").css("display", "none");
+        	});
+
+        	$(document).on('click',".homepage",function(){
+        		location.reload(true);
+        	});
+    	</script>
+    </section>
+
+   
+    
+
+
+</body>
+</html>
