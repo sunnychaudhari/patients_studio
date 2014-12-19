@@ -1,0 +1,5 @@
+# Bellow mentioned files are ignored while moving to git repo
+
+*.pyc
+
+*.db
