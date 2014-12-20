@@ -2,82 +2,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ICON Hospital</title>
+    <title>ICON HMS</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/static/css/foundation.css">
+    <link rel="stylesheet" href="/static/js/foundation/foundation-icons/foundation-icons.css"> 
   	<script src="/static/js/foundation.min.js"></script>
+  	<style type="text/css">
+  		#baner{
+  			background-image: url("/static/img/bg6.jpg");
+  			background-repeat: no-repeat;
+  			background-size: cover;
+  		}
 
+		#image{
+		    height: 380px;
+		    float: none;
+			width: 1000px;
+			overflow: hidden;
+		}
+		.orbit-timer { display:none;}
+
+		hr { background-color: red; height: 1px; border: 0; }
+		
+  	</style>
 </head>
-<body>
+<body id="baner">
 
     <section class="row">
-        <header class="large-12 columns">
-            <h3 class="homepage"><a><img src= "/static/img/stetho.jpg" style="height:50px;"/>&nbsp;ICON</a></h3>
+        <header>
+            <div class="row">
+	            <div class="large-9 columns">
+	            	<h3 class="homepage">&nbsp;&nbsp;<a>ICON</a></h3>
+	            </div>
+	            <div class="large-3 columns">
+	            	<h6><a>Helpline <i class="fi-telephone"></i></a>:&nbsp;&nbsp;022-80801100</h6>
+	            </div>
+	        </div>
             <div class="large-6 columns">HEALTH CARE</div>
             <div class="large-6 columns">    
-	            <dl class="tabs" data-tab> 
-	            	<dd><a id="panel1" href="#new_entry">New Entry</a></dd> 
-	            	<dd><a id="panel2" href="#patient_details">Patient Details</a></dd> 
+	            <dl class="sub-nav" data-tab> 
+	            	<dd class="active"><a id="panel1" href="#landing">Home</a></dd> 
+	            	<dd><a id="panel2" href="#new_entry" >New Entry</a></dd> 
+	            	<dd><a id="panel3" href="#patient_list">Patient List</a></dd> 
 	            </dl>
             </div>
             <hr>
         </header>
     </section>
 
-    
     <section class="row">
-    	<div class="landing_page">
-	    	<center>
-	    	<ul data-orbit>
-			    <li>
-			      <img src="/static/img/OPD.jpg" width="600" alt="slide 1" />		      
-			    </li>
-			    <li class="active">
-			      <img src="/static/img/Prescribe.jpg" width="600" alt="slide 2" />		      
-			    </li>
-			    <li>
-			      <img src="/static/img/reception.jpg" width="600" alt="slide 3" />		      
-			    </li>
-			</ul>
-			</center>
-		</div>
-
+    	
 		<div class="tabs-content"> 
 
-		 	<div class="content active" id="new_entry"> 
-		 		<p>This is the first panel of the basic tab example. This is the first panel of the basic tab example.</p> 
+			{% if not patient %}
+				<div class="content active" id="landing">
+			    	<center>
+			    	<ul data-orbit>
+					    <li>
+					      <img id="image" src="/static/img/OPD.jpg" alt="slide 1" />		      
+					    </li>
+					    <li class="active">
+					      <img id="image" src="/static/img/Prescribe.jpg" alt="slide 2" />		      
+					    </li>
+					    <li>
+					      <img id="image" src="/static/img/reception.jpg" alt="slide 3" />		      
+					    </li>
+					</ul>
+					</center>
+				</div>
+			{% endif %}
+
+		 	<div class="content" id="new_entry"> 
+		 		{% include "new_entry.html" %}
 		 	</div> 
 
-		 	<div class="content" id="patient_details"> <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p> 
+		 	<div class="content" id="patient_list"> 
+		 		{% include "patient_list.html" %}
 		 	</div>
 
-		</div>
+		 	<div id="patient_details"> 
+		    	{% if patient %}
+				 	{% include "patient_details.html" %}
+				{% endif %}
+			</div>
 
+		</div>
+		
 
         <script type="text/javascript">
+        	
         	$(document).foundation({
         		orbit: {
 				    animation: 'slide',
 				    timer_speed: 4500,
 				    pause_on_hover: false,
 				    animation_speed: 500,
-				    navigation_arrows: true				    
+				    navigation_arrows: true,	
+				    slide_number: false,
+				    navigation_arrows: false
 				}
+			});
+
+        	$(document).on('click',".homepage,#panel1",function(){
+        		location.href = "{% url 'home' %}";
         	});
 
-        	$(document).on('click',"#panel1,#panel2",function(){
-        		$(".landing_page").css("display", "none");
+        	$(document).on('click',"#panel2,#panel3",function(){
+        		window.history.pushState("", "", "/");
+        		$("#patient_details").css("display", "none");
         	});
 
-        	$(document).on('click',".homepage",function(){
-        		location.reload(true);
-        	});
     	</script>
+
     </section>
-
-   
-    
-
 
 </body>
 </html>
