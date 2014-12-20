@@ -1,0 +1,101 @@
+
+<form data-abide id="edit_form" method="POST" action="">    
+	{% csrf_token %}
+  	<div class="row">
+	    <div class="large-4 columns">
+	      <label>First Name <b style="color:red;">*</b> 
+	        <input type="text" name="f_name" required pattern="[a-zA-Z]+" placeholder="Patient first name" />
+	      </label>
+	      <small class="error">First Name is required and must be a string.</small>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <label>Last Name <b style="color:red;">*</b> 
+	        <input type="text" name="l_name" required pattern="[a-zA-Z]+" placeholder="Patient second name" />
+	      </label>
+	      <small class="error">Last Name is required and must be a string.</small>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <label>City <b style="color:red;">*</b> 
+	        <select name="city" required="">
+	          <option></option>
+	          <option>Mumbai</option>
+	          <option>Delhi</option>
+	          <option>Gujrath</option>
+	          <option>Jaipur</option>
+	          <option>Bhopal</option>
+	        </select>
+	      </label>
+	      <small class="error">Select City.</small>
+	    </div>
+   	</div>
+
+   	<div class="row">
+    	<div class="large-3 columns">
+	      <label>Age <b style="color:red;">*</b>
+	        <input type="text" name="age" required pattern="[0-9]{2}" placeholder="Patient Age Eg: 23" />
+	      </label>
+	      <small class="error">Enter valid age.</small>        
+	    </div>	    
+
+	    <div class="large-4 columns">
+	      <label>Phone <b style="color:red;">*</b>
+	        <input type="tel" name="phone" required pattern="[0-9]{10}" placeholder="Enter10 digit mb number" required />
+	      </label>	    
+	      <small class="error">Enter valid phone number.</small>        
+	    </div>
+
+	    <div class="large-5 columns">
+	      <label>Email	
+	      	<input type="email" name="email" placeholder="abc@kbc.com" />
+	      </label>	
+	      <small class="error">Enter valid email address.</small>      
+	    </div>
+   	</div>
+
+   	<div class="row">
+   		<div class="large-6 columns">
+   		  <label>Address 1 <b style="color:red;">*</b>
+	        <textarea name="addr1" required pattern="[a-zA-Z0-9]+" placeholder="Patient Address 1"></textarea>
+	      </label>
+	      <small class="error">Enter valid address.</small>      
+   		</div>
+
+   		<div class="large-6 columns">
+   		  <label>Address 2
+	        <textarea name="addr2" placeholder="Patient Address 2"></textarea>
+	      </label>	      
+   		</div>
+   	</div>
+
+  	<div class="row">
+	    <div class="large-4 columns">
+	      <label>Doctor <b style="color:red;">*</b>
+	        <select name="dr_name" required="">
+	          <option></option>
+	          <option>Dr. Kapil</option>
+	          <option>Dr. Somanath</option>
+	          <option>Dr. Suresh</option>
+	          <option>Dr. Deepika</option>
+	          <option>Dr. Sonali</option>
+	        </select>
+	      </label>
+	      <small class="error">Select Doctor name.</small>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <label>Disease
+	        <textarea name="disease" placeholder="Patient Disease"></textarea>
+	      </label>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <label>Prescription
+	        <textarea name="prescription" placeholder="Doctors Prescription"></textarea>
+	      </label>
+	    </div>
+  	</div>
+
+	<input type="submit" id="save_info" class="expand small round button" value="Save" />
+</form>
