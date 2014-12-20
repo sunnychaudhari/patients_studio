@@ -1,0 +1,24 @@
+	
+<table> 
+	<thead> 
+		<tr> 
+			<th width="150">Patient Name</th> 
+			<th width="300">Address</th> 
+			<th width="200">Phone</th>
+			<th width="200">Email</th>
+			<th width="200">Date Of Registration</th> 
+		</tr> 
+	</thead>
+	{% for each in patient_list %}
+		<tbody>
+			<tr> 
+				<td><a href="{% url 'details' each.pk %}">{{each.f_name}} {{each.l_name}}</a></td> 
+				<td>{{each.address1}}</td> 
+				<td>{{each.phone}}</td> 
+				<td>{{each.email}}</td> 
+				<td>{{each.created_at}}</td> 
+			</tr>
+		</tbody> 
+	{% endfor %}		 
+</table>
+	
