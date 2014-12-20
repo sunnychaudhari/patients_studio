@@ -1,0 +1,99 @@
+
+
+<center><b><u>Patient Details</u></b></center><br/><br/>
+<div class="row">
+	<div class="large-2 columns">
+		Name 
+	</div>
+	<div class="large-10 columns">
+		: {{patient.f_name}} {{patient.l_name}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-2 columns">
+		Registerd On
+	</div>
+	<div class="large-10 columns">
+		: {{patient.created_at}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-2 columns">
+		Age 
+	</div>
+	<div class="large-10 columns">
+		: {{patient.age}} 
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-2 columns">
+		City
+	</div>
+	<div class="large-10 columns">
+		: {{patient.city}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-2 columns">
+		Address
+	</div>
+	<div class="large-10 columns">
+		: {{patient.address1}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-2 columns">
+		Phone
+	</div>
+	<div class="large-10 columns">
+		: {{patient.phone}}
+	</div>
+</div>
+
+{% if patient.email %}
+	<div class="row">
+		<div class="large-2 columns">
+			Email
+		</div>
+		<div class="large-10 columns">
+			: {{patient.email}}
+		</div>
+	</div>
+{% endif %}
+
+<div class="row">
+	<div class="large-2 columns">
+		Doctor Name 
+	</div>
+	<div class="large-10 columns">
+		: {{patient.dr_name}}
+	</div>
+</div>
+
+{% if patient.disease %}
+	<div class="row">
+		<div class="large-2 columns">
+			Disease 
+		</div>
+		<div class="large-10 columns">
+			: {{patient.disease}}
+		</div>
+	</div>
+{% endif %}
+
+{% if patient.disease %}
+	<div class="row">
+		<div class="large-2 columns">
+			Prescription 
+		</div>
+		<div class="large-10 columns">
+			: {{patient.prescription}}
+		</div>
+	</div>
+{% endif %}
+
