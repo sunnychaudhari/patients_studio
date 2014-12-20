@@ -25,7 +25,7 @@ class Patient(DjangoDocument):
        recorded for check up in hospital
     '''
     objects = models.Manager()
-
+    use_schemaless = True
     collection_name = 'Patients'
     structure = {
         'Patient_ID': unicode, 
@@ -36,6 +36,8 @@ class Patient(DjangoDocument):
         'city': unicode,
         'phone': int,
         'age': int,
+        'email': unicode,
+        'dr_name': unicode,
 
       	'created_at': datetime.datetime, # Patients entry 
         'created_by': int, # test required: only ids of Users(hospital staff member)
@@ -49,7 +51,7 @@ class Patient(DjangoDocument):
         'collection_set': [ObjectId],  # for indivisual patients reports
     }
     
-    required_fields = ['f_name','l_name','address1','city','phone','age'] # 'group_set' to be included
+    required_fields = ['f_name','l_name','address1','city','phone','age', 'dr_name']
 
     default_values = {'created_at': datetime.datetime.utcnow}
     use_dot_notation = True
