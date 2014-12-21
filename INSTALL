@@ -38,6 +38,25 @@ If you are on a debian or Ubuntu PC install the following packages.
 * After running (b) point your browser to http://localhost:8000 to see
   patients_studio on your browser.  Enjoy.  
 
+## Demo ##
+* After successfull run of this project, you will see the homepage of this app, 
+  About Homepage:
+  	There are 3 tabs you can see "Home", "New Entry", "Patients List"
+  New Entry :
+  	Click on "New Entry" --> This will show the form to make patients entry who come for diagnosis
+  	Fields which are used to take patients entry are: First Name, Last Name, City, Age, Phone, Email, Address1, Address2, Doctor's Name, Disease, Prescription
+  Patients List:
+  	Click on "Patients List"  --> This will lists the all patients who came for diagnosis 
+  	In table to view indivisuals details, click on patient name, you will be redirected to details page of this patient
+  Patient Details:
+  	Patient details page will have its entire information of diagnosis (Which will act as a patients report) along with data and time
+  Edit Patient Details:
+  	Also you can "Edit" the stored details of patient, click on edit button and you will see the overlay on which you can edit the patients details
+  Responsive :
+  	Also make sure that its a responsive web app, which means the same app will also be accessed in mobile view format properly 
+  
+## End Demo ##
+
 * Any issues with this procedure or you need any further help, forward me a mail
 
   My Email: yuvaraj.chaudhari1@gmail.com
