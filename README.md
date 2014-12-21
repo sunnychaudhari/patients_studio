@@ -19,3 +19,8 @@ Technology Used
 
 Python & MongoDB
 Javascript,  HTML, Foundation 5 CSS, jQuery,  Django  
+
+NOTE 
+=====
+
+Please read the instructions followed in "INSTALL" file which is step by step guide to install essential dependencies required to run this project and enjoy hacking !!! 
