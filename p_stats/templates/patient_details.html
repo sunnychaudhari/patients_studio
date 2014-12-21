@@ -1,4 +1,4 @@
-
+<!-- This template if for displaying patient details and also editing details on overlay -->
 
 <center><b><u>Patient Details</u></b></center><br/><br/>
 <div class="row">
@@ -96,4 +96,13 @@
 		</div>
 	</div>
 {% endif %}
+<br/>
 
+<a href="#" data-reveal-id="firstModal" class="radius tiny round button">Edit</a>
+
+<div id="firstModal" class="reveal-modal" data-reveal>
+
+	{% include "new_entry.html" %}
+
+	<a class="close-reveal-modal">&#215;</a>
+</div>
