@@ -1,0 +1,44 @@
+* INSTALLATION Procedure to run "patients_studio" project
+
+If you are on a debian or Ubuntu PC install the following packages.
+
+1. Install required packages and its dependencies
+	
+    sudo apt-get install python-setuptools git build-essential python-dev mongodb python-virtualenv libjpeg-dev libfreetype6-dev
+
+2. Set up virtual environment for "patients_studio"
+
+    (1) virtualenv <name-of-your-env>            # In this case say Eg: virtualenv hospital     
+    (2) cd hospital                              # Go inside hospital/your env   
+    (3) source bin/activate                      # Activates virtual environment 
+
+3. Get latest version of "patients_studio" 
+
+    (1) git clone https://github.com/sunnychaudhari/patients_studio.git
+    (2) cd patients_studio                       # Go inside cloned project directory
+    (3) pip install -r requirements.txt          
+    (4) sudo apt-get update
+
+4. To run "patients_studio" project, perform following steps: 
+
+    (1) Make sure you are in the virtualenv-folder and it's activated
+        (source bin/activate).  
+
+    (2) Move to folder where your "manage.py" file resides: cd p_stats
+
+    (3) Start mongodb server: sudo service mongodb start 
+
+    (4) Run the following commands: 
+
+        (a) python manage.py syncdb             
+
+        (b) python manage.py runserver 
+
+
+* After running (b) point your browser to http://localhost:8000 to see
+  patients_studio on your browser.  Enjoy.  
+
+* Any issues with this procedure or you need any further help, forward me a mail
+
+  My Email: yuvaraj.chaudhari1@gmail.com
+  
