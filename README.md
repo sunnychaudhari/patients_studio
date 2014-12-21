@@ -1,7 +1,7 @@
 patients_studio
 ===============
 
-* Its a web application to be used by a hospital for managing their patients.
+* Its a responsive web application to be used by a hospital for managing their patients.
 * Record the information about each patient and based on patient diagnosis and history, store additional information about each patient.
 
 Features
@@ -18,4 +18,4 @@ Technology Used
 ================
 
 Python & MongoDB
-Javascript,  HTML, CSS, jQuery,  Django  
+Javascript,  HTML, Foundation 5 CSS, jQuery,  Django  
