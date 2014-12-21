@@ -10,14 +10,18 @@ except ImportError:  # old pymongo
 
 from p_app.models import Patient
 
-# Create your views here.
-collection = get_database()[Patient.collection_name]
+#####################################################################
+
+collection = get_database()[Patient.collection_name]   # This broughts the 'Patient'  collection from 'patients_store' DB
 
 def homepage(request, p_id=None):	
-
-	err = None
-	print "\n inside view\n"
-
+	'''
+	1.This method is for savig patient details and displaying list of patients who has 
+	  come for diagnosis 
+	2.POST request handels the editing and saving new patients
+	3.Outside of POST request part is handeled for displaying patients list and particular
+	  patient details
+	'''
 	if request.method == "POST":
 
 		fname = request.POST.get('f_name','')
@@ -32,10 +36,6 @@ def homepage(request, p_id=None):
 		disease = request.POST.get('disease','')
 		prescription = request.POST.get('prescription','')
 
-		# print fname," ",lname," ",city,"\n"
-		# print age," ",phone," ",email,"\n"
-		# print addr1," ",addr2,"\n"
-		# print dr_name," ",disease," ",prescription,"\n"
 		patient = collection.Patient.one({'phone': phone,'f_name': unicode(fname) })
 
 		if patient is None:
