@@ -1,16 +1,13 @@
 # imports from python libraries 
 import os, datetime
-
+# imports from django libraries
 from django.contrib.auth.models import User
 from django.db import models
-
+# imports from django_mongokit libraries
 from django_mongokit import connection
 from django_mongokit import get_database
 from django_mongokit.document import DjangoDocument
-
-#from mongokit import CustomType
 from mongokit import IS
-#from mongokit import OR
 
 try:
     from bson import ObjectId
@@ -22,7 +19,7 @@ except ImportError:  # old pymongo
 @connection.register
 class Patient(DjangoDocument):
     '''This is a 'Patient' collection where all its information will be 
-       recorded for check up in hospital
+       recorded for entire diagnosis in hospital
     '''
     objects = models.Manager()
     use_schemaless = True
